@@ -1,0 +1,23 @@
+{
+  "name": "compstream",
+  "version": "1.0.0",
+  "description": "App to compare streaming services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunter3142/CompStream.git"
+  },
+  "author": "Matt Hunter",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "~7.5.0",
+    "path": "^0.4.9"
+  },
+  "devDependencies": {
+    "connect-modrewrite": "^0.7.9",
+    "es5-shim": "^4.0.1"
+  }
+}
