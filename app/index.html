@@ -9,8 +9,15 @@
 </head>
 <body>
   <h1>CompStream</h1>
+  <div id="comparison_selector_container" class="col-md-offset-1 col-md-8">
+    <label for="Live TV">Live TV</label>
+    <input type="checkbox" id="Live TV" ng-model="liveChecked">
+  </div>
   <div id="main_container" class="col-md-offset-1 col-md-8" ng-controller="StreamListController as streamList">  
-      <div ng-repeat="service in streamList.providers">
+      <div ng-if="liveChecked" ng-repeat="service in streamList.liveTV">
+        <p>{{service.provider}}</p>
+      </div>
+      <div ng-if="!liveChecked" ng-repeat="service in streamList.providers">
         <p>{{service.provider}}</p>
       </div>
   </div>
