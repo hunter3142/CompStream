@@ -3,12 +3,12 @@ angular.module('compStream', [])
 		var streamList = this;
 
 		streamList.providers = [
-			{provider: "Hulu", link: "https://www.hulu.com/", price: 5.99, live: false, original: true, sports: false, none: true, pricingPackage: false},
-			{provider: "Hulu Live", link: "https://www.hulu.com/live-tv", price: 39.99, live: true, original: true, sports: true, none: true, pricingPackage: false},
-			{provider: "Netflix", link: "https://www.netflix.com/originals",price: 7.99, live: false, original: true, sports: false, none: true, pricingPackage: false},
-			{provider: "Amazon Prime", link: "https://www.amazon.com/Prime-Video/b?node=2676882011", price: 10.99, live: false, original: true, sports: false, none: true, pricingPackage: false},
-			{provider: "Youtube TV", link: "https://tv.youtube.com/welcome/", price: 35, live: true, original: false, sports: true, none: true, pricingPackage: false},
-			{provider: "HD Antenna", link: "https://www.antennasdirect.com/transmitter-locator.html", price: 11.99, live: true, original: false, sports: true, none: true, pricingPackage: false}];
+			{provider: "Hulu", link: "https://www.hulu.com/", price: 5.99, live: false, original: true, sports: false, pricingPackage: false},
+			{provider: "Hulu Live", link: "https://www.hulu.com/live-tv", price: 39.99, live: true, original: true, sports: true, pricingPackage: false},
+			{provider: "Netflix", link: "https://www.netflix.com/originals",price: 7.99, live: false, original: true, sports: false, pricingPackage: false},
+			{provider: "Amazon Prime", link: "https://www.amazon.com/Prime-Video/b?node=2676882011", price: 10.99, live: false, original: true, sports: false, pricingPackage: false},
+			{provider: "Youtube TV", link: "https://tv.youtube.com/welcome/", price: 35, live: true, original: false, sports: true, pricingPackage: false},
+			{provider: "HD Antenna", link: "https://www.antennasdirect.com/transmitter-locator.html", price: 11.99, live: true, original: false, sports: true, pricingPackage: false}];
 
 		streamList.filteredResults = streamList.providers;
 
@@ -35,7 +35,6 @@ angular.module('compStream', [])
 				live: true,
 				original: true,
 				sports: true,
-				none: true
 			}
 			}
 			return result;
@@ -55,7 +54,7 @@ angular.module('compStream', [])
 			})
 			return filteredArray
 		}
-		
+
 		streamList.pricingPackageTotal = function() {
 			var totalPrice = 0;
 			for(provider in streamList.providers) {

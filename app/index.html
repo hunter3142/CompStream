@@ -11,10 +11,9 @@
   <h1>CompStream</h1>
   <div id="comparison_selector_container" class="col-md-offset-1 col-md-8">
     <form>
-      <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.liveChecked">Live TV
+      <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.liveChecked"> Live TV
       <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.originalChecked"> Original Content
       <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.sportsChecked"> Sports
-      <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.noneChecked"> None
     </form>
   </div>
   <div id="main_container" class="col-md-offset-1 col-md-8">  
@@ -27,7 +26,7 @@
         <p> Price: starting at ${{service.price}}</p>
       </div>
   </div>
-  <div id="package_price_container" class="col-md-2">
+  <div ng-if="streamList.pricingPackageTotal() > 0"id="package_price_container" class="col-md-2">
     <div ng-repeat="service in streamList.providers | filter:{pricingPackage:true}">
       <input type="button" class="btn-danger" ng-click="service.pricingPackage = false"><span> {{service.provider}}: ${{service.price}}</span>
     </div>
