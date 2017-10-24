@@ -19,12 +19,19 @@
   </div>
   <div id="main_container" class="col-md-offset-1 col-md-8">  
       <div ng-repeat="service in streamList.filteredResults">
-        <a href="{{service.link}}">{{service.provider}}</a>
+        <input type="button" class="btn-success" ng-click="service.pricingPackage = true"> <a href="{{service.link}}">{{service.provider}}</a>
         <span ng-if="service.live">Live TV</span>
         <span ng-if="service.original">Original Content</span>
         <span ng-if="service.sports">Sports</span>
+        <span ng-if="service.pricingPackage">ADDED</span>
         <p> Price: starting at ${{service.price}}</p>
       </div>
+  </div>
+  <div id="package_price_container" class="col-md-2">
+    <div ng-repeat="service in streamList.providers | filter:{pricingPackage:true}">
+      <input type="button" class="btn-danger" ng-click="service.pricingPackage = false"><span> {{service.provider}}: ${{service.price}}</span>
+    </div>
+    <p>Total: ${{streamList.pricingPackageTotal()}}</p>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
