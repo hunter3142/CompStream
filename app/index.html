@@ -7,11 +7,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
-<body>
+<body ng-controller="StreamListController as streamList">
   <h1>CompStream</h1>
-  <div id="main_container" class="col-md-offset-1 col-md-8" ng-controller="StreamListController as streamList">  
-      <div ng-repeat="service in streamList.providers">
-        <p>{{service.provider}}</p>
+  <div id="comparison_selector_container" class="col-md-offset-1 col-md-8">
+    <form>
+      <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.liveChecked">Live TV
+      <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.originalChecked"> Original Content
+      <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.sportsChecked"> Sports
+      <input type="checkbox" name="selectors" ng-click="streamList.updateList()" ng-model="streamList.noneChecked"> None
+    </form>
+  </div>
+  <div id="main_container" class="col-md-offset-1 col-md-8">  
+      <div ng-repeat="service in streamList.filteredResults">
+        <a href="{{service.link}}">{{service.provider}}</a>
+        <span ng-if="service.live">Live TV</span>
+        <span ng-if="service.original">Original Content</span>
+        <span ng-if="service.sports">Sports</span>
+        <p> Price: starting at ${{service.price}}</p>
       </div>
   </div>
 
