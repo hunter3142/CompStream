@@ -5,3 +5,11 @@
 #main_container {
 	border: 3px solid black;
 }
+
+#package_price_container {
+	border: 3px solid black;
+}
+
+.btn-success, .btn-danger {
+	height: 20px;
+}
